@@ -14,6 +14,8 @@ export type Event =
       event: KeyboardEvent;
     };
 
-type EventType = unknown;
+type EventType = Event["type"];
+
+// when you access a key on a union, you're actually accessing all of the possible permutations of that key.
 
 type tests = [Expect<Equal<EventType, "click" | "focus" | "keydown">>];
